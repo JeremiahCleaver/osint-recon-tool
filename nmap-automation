@@ -1,0 +1,11 @@
+import subprocess
+
+def run_nmap(target):
+    command = ["nmap", "-sV", "-p-", target]
+    result = subprocess.run(command, capture_output=True, text=True)
+    return result.stdout
+
+if __name__ == "__main__":
+    target_ip = input("Enter target IP or domain: ")
+    report = run_nmap(target_ip)
+    print(report)
